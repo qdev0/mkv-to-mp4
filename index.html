@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>MKV to MP4 Converter</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="container">
+        <h1>MKV to MP4 Converter</h1>
+
+        <input type="file" id="fileInput" accept=".mkv" />
+        <button id="convertBtn">Convert to MP4</button>
+
+        <p id="status"></p>
+        <a id="downloadLink" style="display: none;">Download MP4</a>
+    </div>
+
+    <!-- FFmpeg.wasm from a public CDN -->
+    <script src="dist/ffmpeg.min.js"></script>
+
+    <!-- Your custom script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
