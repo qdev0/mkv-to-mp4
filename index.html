@@ -3,19 +3,59 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MKV to MP4 Converter</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <div id="container">
-        <h1>MKV to MP4 Converter</h1>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-video"></i> MKV to MP4 Converter</h1>
+            <p class="subtitle">Convert your MKV files to MP4 right in your browser</p>
+            <div class="theme-switch">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
 
-        <input type="file" id="fileInput" accept=".mkv" />
-        <button id="convertBtn">Convert to MP4</button>
+        <div class="upload-area" id="dropZone">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h3>Drag & Drop Files Here</h3>
+            <p>or</p>
+            <label for="fileInput" class="upload-btn">
+                Choose Files
+                <input type="file" id="fileInput" multiple accept=".mkv" hidden>
+            </label>
+            <p class="file-limits">Supports MKV files up to 2GB</p>
+        </div>
 
-        <p id="status"></p>
-        <a id="downloadLink" style="display: none;">Download MP4</a>
+        <div class="queue-container" id="queueContainer">
+            <h2>Conversion Queue</h2>
+            <div class="queue-list" id="queueList">
+                <!-- Queue items will be added here dynamically -->
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <i class="fas fa-tasks"></i>
+                <span id="queueCount">0</span>
+                <label>In Queue</label>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-check-circle"></i>
+                <span id="completedCount">0</span>
+                <label>Completed</label>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <span id="estimatedTime">--:--</span>
+                <label>Est. Time</label>
+            </div>
+        </div>
     </div>
 
     <!-- FFmpeg.wasm from a public CDN -->
